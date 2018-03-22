@@ -10,12 +10,13 @@ function tick() {
   if (app.curve.lutindex >= app.curve.max){
     app.curve.lutindex = 0;
   }
+  
   app.airplane.position = app.airplane.speed*(app.lastTime - app.airplane.startTime);
   if (app.airplane.position > app.curve.length){
     app.airplane.position = 0;
     app.airplane.startTime = app.lastTime;
   }
-  console.log('length = '+app.curve.length +'  --- position = '+app.airplane.position);
+
   app.drawScene();
   animate();
 }
