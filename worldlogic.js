@@ -62,14 +62,12 @@ function drawWorld(){
         var co = dv.z - pt.z;
         var ca = dv.x - pt.x;
         var angle = 0;
+
         if (dv.x < pt.x)
           angle = degToRad(270) - Math.atan(co/ca);
         else
           angle = degToRad(90) - Math.atan(co/ca)
         
-
-        //mat4.scale(app.mvMatrix, [0.01, 0.01, 0.01], app.mvMatrix);
-        //gl.uniform3fv( shaderProgram.lightSpecularColor, lightIntesity( 0.5, 0.5, 0.5, 0.1 ) );
         mat4.rotate( app.mvMatrix, angle, [0,1,0] );
         drawObject( app.models.airplane_body, 0.1, [165.0/255.0, 0.0, 0.0, 1.0]  );
         app.animations.elisa.rotation += app.animations.elisa.speed;
@@ -79,8 +77,6 @@ function drawWorld(){
         drawObject( app.models.airplane_elisa, 1, [0.0, 0.0, 0.0, 1.0] );
       mvPopMatrix();
 
-  
-  // use the particle shaders
   if( app.animate ){
     app.animations.currentAnimation();
   }

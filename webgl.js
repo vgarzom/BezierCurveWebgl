@@ -10,7 +10,7 @@ function tick() {
   if (app.curve.lutindex >= app.curve.max){
     app.curve.lutindex = 0;
   }
-  
+
   app.airplane.position = app.airplane.speed*(app.lastTime - app.airplane.startTime);
   if (app.airplane.position > app.curve.length){
     app.airplane.position = 0;
@@ -30,9 +30,6 @@ function webGLStart( meshes ) {
   initBuffers();
   initPointerLock();
   initTextures();
-
-  document.onkeydown = cameraKeyDownHandler;
-  document.onkeyup = cameraKeyUpHandler;
 
   gl.clearColor(123.0/255.0, 208.0/255.0, 255.0/255.0, 1.0);
   gl.enable(gl.DEPTH_TEST);

@@ -17,12 +17,7 @@ var app = {};
   // so there is no need to have more than one
   // texture holder
   app.textures = {};
-  // keyboard key ids
-  app.keys = { W: 87, A: 65, S: 83, D: 68 };
-  app.keys.pressed = {};
-  for( key in app.keys ){
-    app.keys.pressed[ app.keys[ key ] ] = false;
-  }
+
   app.curve = {};
   app.curve.startPoint = [];
   app.curve.endPoint = [];
