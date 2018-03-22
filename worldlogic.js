@@ -1,23 +1,6 @@
-app.monkeyPositionTimer = 0;
 
-app.monkeyRoomCollision = 3000.95;
-function roomCollisionCheck(){
-  if( app.camera.position[X] > app.monkeyRoomCollision ){
-    app.camera.position[X] = app.monkeyRoomCollision
-  }
-  if( app.camera.position[X] < -app.monkeyRoomCollision ){
-    app.camera.position[X] = -app.monkeyRoomCollision
-  }
-  if( app.camera.position[Z] > app.monkeyRoomCollision ){
-    app.camera.position[Z] = app.monkeyRoomCollision
-  }
-  if( app.camera.position[Z] < -app.monkeyRoomCollision ){
-    app.camera.position[Z] = -app.monkeyRoomCollision
-  }
-}
-
-function drawMonkeyRoom(){
-  roomCollisionCheck();
+function drawWorld(){
+  //roomCollisionCheck();
   gl.viewport(0, 0, gl.viewportWidth, gl.viewportHeight);
   gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
   mat4.perspective(45, gl.viewportWidth / gl.viewportHeight, 0.01, 1000.0, app.pMatrix);
@@ -103,4 +86,4 @@ function drawMonkeyRoom(){
   }
 }
 
-app.drawScene = drawMonkeyRoom;
+app.drawScene = drawWorld;
