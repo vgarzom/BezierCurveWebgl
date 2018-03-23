@@ -9,5 +9,6 @@ function initInterfaceListeners() {
         app.camera.position = [0,10.0,0];
         app.camera.pitch = 90;
         app.camera.heading = 0;
+        window.alert('Con la cámara Long-shot puedes modificar la curva arrastrando los puntos de control (Esferas mas grandes) con el mouse')
     };
 }
