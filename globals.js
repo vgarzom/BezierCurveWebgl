@@ -3,6 +3,8 @@
 
 // Enums
 var X = 0, Y = 1, Z = 2, H = 3, P = 4;
+// Enums para el tipo de cámara seleccionada
+var FIRST = 0, THIRD = 1, LONGSHOT = 2;
 // gl context
 var gl;
 // the canvas we're working with
@@ -29,6 +31,8 @@ var app = {};
     y: 0
   };
 
+  app.sliders = {};
+
   app.selectedPoint = null;
   // camera
   app.camera = {};
@@ -36,10 +40,8 @@ var app = {};
   app.camera.inversePosition = vec3.create();
   app.camera.heading = 0;
   app.camera.pitch = 90;
-  app.camera.walkSpeed = 0.005;
-  app.camera.speed = app.camera.walkSpeed;
-  app.camera.sensitivity = 10;
   app.camera.disable = false;
+  app.camera.selected = LONGSHOT;
   
   // which function to use to draw
   app.drawScene;

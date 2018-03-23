@@ -63,10 +63,28 @@ function drawWorld(){
         var ca = dv.x - pt.x;
         var angle = 0;
 
+        
+
         if (dv.x < pt.x)
           angle = degToRad(270) - Math.atan(co/ca);
         else
           angle = degToRad(90) - Math.atan(co/ca)
+
+          //Actualizamos la vista de la camara
+        switch(app.camera.selected){
+          case FIRST:
+            app.camera.position = [pt.x, pt.y + 0.5, pt.z];
+            app.camera.pitch = 10;
+            app.camera.heading = 180 - radToDeg(angle);
+          break;
+          case THIRD:
+            app.camera.position = [pt.x - 3*Math.sin(angle), pt.y + 1, pt.z - 3*Math.cos(angle)];
+              app.camera.pitch = 0;
+              app.camera.heading = 180 - radToDeg(angle);
+          break;
+          case LONGSHOT:
+          break;
+        }
         
         mat4.rotate( app.mvMatrix, angle, [0,1,0] );
         drawObject( app.models.airplane_body, 0.1, [165.0/255.0, 0.0, 0.0, 1.0]  );

@@ -108,6 +108,10 @@ function degToRad(degrees) {
     return degrees * Math.PI / 180;
 }
 
+function radToDeg(rad) {
+  return rad * 180 / Math.PI;
+}
+
 function Array2Buffer(array, iSize, nSize) {
   var buffer = gl.createBuffer();
   gl.bindBuffer(gl.ARRAY_BUFFER, buffer);

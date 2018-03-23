@@ -17,6 +17,11 @@ function tick() {
     app.airplane.startTime = app.lastTime;
   }
 
+  app.airplane.speed = app.sliders.speed.value/100000;
+  app.sliders.speedLabel.innerHTML = 'Velocidad ('+app.airplane.speed+'):';
+
+  
+
   app.drawScene();
   animate();
 }
@@ -30,6 +35,7 @@ function webGLStart( meshes ) {
   initBuffers();
   initPointerLock();
   initTextures();
+  initInterfaceListeners();
 
   gl.clearColor(123.0/255.0, 208.0/255.0, 255.0/255.0, 1.0);
   gl.enable(gl.DEPTH_TEST);
